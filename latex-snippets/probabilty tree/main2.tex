@@ -1,0 +1,54 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{trees}
+\usepackage{hyperref,enumerate,float,amsfonts,amssymb,amsmath,graphics,graphicx,mathtools}
+\definecolor{rew}{RGB}{162,11,107}
+\begin{document}
+
+% Set the overall layout of the tree
+\tikzstyle{level 1}=[level distance=3.5cm, sibling distance=3.5cm]
+\tikzstyle{level 2}=[level distance=3.5cm, sibling distance=2cm]
+
+% Define styles for bags and leafs
+\tikzstyle{bag} = [text width=4em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+{\color{rew}
+\begin{tikzpicture}[grow=right, sloped]
+    \node[bag] {}
+    child {
+            node[bag] {Red}
+            child {
+                    node[bag] {Red}
+                    edge from parent
+                    node[below] {$\dfrac{14}{24}$}
+                }
+            child {
+                    node[bag] {White}
+                    edge from parent
+                    node[above] {$\dfrac{10}{24}$}
+                }
+            edge from parent
+            node[below]  {$\dfrac{15}{25}$}
+        }
+    child {
+            node[bag] {White}
+            child {
+                    node[bag] {Red}
+                    edge from parent
+                    node[below] {$\dfrac{15}{24}$}
+                }
+            child {
+                    node[bag] {White}
+                    edge from parent
+                    node[above] {$\dfrac{9}{24}$}
+                }
+            edge from parent
+            node[above]  {$\dfrac{10}{25}$}
+        }
+
+    ;
+\end{tikzpicture}
+}
+
+\end{document}

@@ -1,0 +1,54 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{trees}
+\usepackage{hyperref,enumerate,float,amsfonts,amssymb,amsmath,graphics,graphicx,mathtools}
+\definecolor{rew}{RGB}{162,11,107}
+\begin{document}
+
+% Set the overall layout of the tree
+\tikzstyle{level 1}=[level distance=3.5cm, sibling distance=3.5cm]
+\tikzstyle{level 2}=[level distance=3.5cm, sibling distance=2cm]
+
+% Define styles for bags and leafs
+\tikzstyle{bag} = [text width=4em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+{\color{rew}
+\begin{tikzpicture}[grow=right, sloped]
+    \node[bag] {}
+    child {
+            node[bag] {Defective}% This is the first of three "Bag 2"
+            child {
+                    node[bag] {$\dfrac{4}{14}\;  P(D_2|D_1)$}
+                    edge from parent
+                    node[below] {Defective}
+                }
+            child {
+                    node[bag] {$\dfrac{10}{14}\;  P(G_2|D_1)$}
+                    edge from parent
+                    node[above] {Good}
+                }
+            edge from parent
+            node[below]  {$\dfrac{5}{15}$}
+        }
+    child {
+            node[bag] {Good}
+            child {
+                    node[bag] {$\dfrac{5}{14}\;  P(D_2|G_1)$}
+                    edge from parent
+                    node[above] {Defective}
+                }
+            child {
+                    node[bag] {$\dfrac{9}{14}\;  P(G_2|G_1)$}
+                    edge from parent
+                    node[above] {Good}
+                }
+            edge from parent
+            node[above]  {$\dfrac{10}{15}$}
+        }
+
+    ;
+\end{tikzpicture}
+}
+
+\end{document}
